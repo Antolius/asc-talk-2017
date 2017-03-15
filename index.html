@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/custom.css">
+		<link rel="stylesheet" href="css/theme/white.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/arduino-light.css">
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background-image="img/for_dummies.png">
+					<h1>Od osnova JavaScripta do aplikacije</h1>
+					<h3>React for dummies</h3>
+					<p>
+						<small>Predaje: Josip Antoliš</small>
+					</p>
+				</section>
+				<section>
+					<h3>Infobip</h3>
+					<ul>
+						<li class="fragment">nekoliko stotina milijuna SMS poruka dnevno</li>
+						<li class="fragment">enterprise web aplikacija u <i>iPhone svijetu</i></li>
+						<li class="fragment">frontend: React + ES6</li>
+						<li class="fragment">backend: mikroservisi pisani u javi, groovyu, .net-u, Node.js-u</li>
+						<li class="fragment">continuous integration, devops</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Zadatak za danas</h3>
+					<p>Napraviti kalkulator valuta kao web aplikaciju.</p>
+					<p>Za aktualne podatke o tečaju koristiti json API dostupan na <a href="http://fixer.io/">fixer.io</a></p>
+				</section>
+				<section>
+					<section>
+						<h3>Ciljevi</h3>
+					</section>
+					<section>
+						<h4>Kod organiziran po komponentama</h4>
+						<p>Alat: React</p>
+						<img src="img/react.svg" class="icon"/>
+						<p class="fragment">library za izgradnju korisničkih sučelja</p>
+						<p class="fragment">baziran na komponentama</p>
+						<p class="fragment">podatci teku <i>odozgora prema dolje</i></p>
+					</section>
+					<section>
+						<h4>Kompaktan React kod</h4>
+						<p>Alat: JSX</p>
+						<img src="img/jsx.png" class="icon"/>
+						<p class="fragment">proširenje JavaScripta elementima HTML-a</p>
+						<pre  class="fragment" style="float: left; width: 47%"><code class="hljs javascript" data-trim>
+							//JavaScript sintaksa
+							var element = React.createElement(
+								'h1',
+								{id: 'myId'},
+								'Title'
+							);
+						</code></pre>
+						<pre  class="fragment" style="float: right; width: 47%"><code class="hljs javascript" data-trim>
+							//JSX sintaksa
+							var element = (
+								<h1 id="myId">Title</h1>
+							);
+						</code></pre>
+					</section>
+					<section>
+						<h4>Elegantan JavaScript kod</h4>
+						<p>Alat: ECMAScript 6</p>
+						<img src="img/es6.png" class="icon"/>
+						<p class="fragment">nova verzija JavaScripta: <code>class</code>, <code>cosnt</code>, <code>() => {}</code></p>
+						<pre class="fragment"><code class="hljs javascript" data-trim>
+							class MyComponent extends React.Component {
+								constructor(props) { super(props); } 
+								myMethod = (param) => { const a = 5; }
+								render() { return <p>Hello, world!</p> ; }
+							}
+						</code></pre>						
+					</section>
+					<section>
+						<h4>Modularan kod</h4>
+						<p>Alat: ES6 modules</p>
+						<img src="img/es-modules.png" class="icon"/>
+						<p class="fragment">definicije modula i ovisnosti među njima</p>
+						<pre class="fragment"><code class="hljs javascript" data-trim>
+							import React from 'react';
+							import myUtil from './myUtil';
+
+							class MyComponent extends React.Component {
+								render() { return  <p>{myUtil()}</p> ; }
+							}
+
+							export default MyComponent;
+						</code></pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Problem</h3>
+						<p>Kako koristiti te alate u browserima koji ih ne podržavaju?</p>
+					</section>
+					<section>
+						<h4>Babel</h4>
+						<img src="img/babel.png" class="icon"/>
+						<p><i>transpiler</i>, prepisuje ES6 i JSX u legacy JavaScript</p>
+					</section>
+					<section>
+						<h4>Webpack</h4>
+						<img src="img/webpack.svg" class="icon"/>
+						<p><i>module bundler</i>, zapakira pojedinačne module u zajednički JavaScript file</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Zvuči kao puno buzzworda</h3>
+						<p>(prije nego što uopće dođemo do koda)</p>
+					</section>
+					<section>
+						<h4>Yeoman</h4>
+						<img src="img/yeoman.png" class="icon"/>
+						<p><i>scaffolding</i> alat za setupiranje projekata</p>
+						<p class="fragment">ekosustav generatora, koriste razne frameworke i alate</p>
+						<p class="fragment"><i>best practices</i>, dobra početna točka</p> 
+					</section>
+					<section data-background-image="img/bridge.jpg">
+						<h3 style="color: white; margin-bottom: 300px; -webkit-text-stroke: 1px darkslategray;">Eksperimentiranje</h3>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Demo...</h3>
+						<img src="img/pat&mat.jpg" style="background:none; border:none; box-shadow:none;" />
+					</section>
+					<section>
+						<h4>Preduvjeti:</h4>
+						<ol>
+							<li><a href="https://nodejs.org/en/">node.js i <code>npm</code></a></li>
+							<li><a href="http://yeoman.io/">yeoman</a></li>
+							<li><a href="https://github.com/react-webpack-generators/generator-react-webpack#readme">generator-react-webpack</a></li>
+						</ol>
+					</section>
+					<section>
+						<h4>Koraci:</h4>
+						<ol>
+							<li><code>mkdir converter</code></li>
+							<li><code>cd converter</code></li>
+							<li><code>yo react-webpack</code></li>
+							<li><code>npm install bootstrap@4.0.0-alpha.6 --save</code></li>
+							<li><code>npm install whatwg-fetch --save</code></li>
+							<li><code>yo react-webpack:component Converter</code></li>
+							<li><code>???</code></li>
+							<li><code>Profit!</code></li>
+						</ol>
+					</section>
+					<section>
+						<h4>Gotov projekt</h4>
+						<h6>(sa pojedinačnim koracima)</h6>
+						<a href="https://github.com/Antolius/converter">github.com/Antolius/converter</a>
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
